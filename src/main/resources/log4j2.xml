@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %p %c{1.} [%t] %m%n" />
+        </Console>
+        <Async name="ASYNC">
+            <AppenderRef ref="CONSOLE" />
+        </Async>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="AXFORM" level="WARN" additivity="false"><AppenderRef ref="ASYNC" /></Logger>
+        <Logger name="mixin" level="WARN" additivity="false"><AppenderRef ref="ASYNC" /></Logger>
+        <Logger name="cpw.mods" level="WARN" additivity="false"><AppenderRef ref="ASYNC" /></Logger>
+        <Logger name="net.minecraft" level="WARN" additivity="false"><AppenderRef ref="ASYNC" /></Logger>
+        <Logger name="net.minecraftforge" level="WARN" additivity="false"><AppenderRef ref="ASYNC" /></Logger>
+        <Logger name="com.mojang" level="WARN" additivity="false"><AppenderRef ref="ASYNC" /></Logger>
+        <Root level="DEBUG">
+            <AppenderRef ref="ASYNC" />
+        </Root>
+    </Loggers>
+
+</Configuration>

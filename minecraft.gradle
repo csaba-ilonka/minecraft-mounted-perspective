@@ -1,0 +1,46 @@
+apply plugin: 'net.minecraftforge.gradle'
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${forgeMinecraftVersion}-${forgeVersion}"
+}
+
+minecraft {
+    mappings channel: minecraftMappingChannel, version: minecraftMappingVersion
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+            mods {
+                THIS_MOD_ID {
+                    source sourceSets.main
+                }
+            }
+        }
+        server {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+            mods {
+                THIS_MOD_ID {
+                    source sourceSets.main
+                }
+            }
+        }
+        data {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+            args '--mod', 'THIS_MOD_ID',
+                 '--all',
+                 '--output', file('src/generated/resources/'),
+                 '--existing', file('src/main/resources/'),
+                 '--existing', file('src/generated/resources/')
+            mods {
+                THIS_MOD_ID {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}

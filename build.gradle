@@ -1,0 +1,75 @@
+buildscript {
+    repositories {
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+        maven {
+            url 'https://files.minecraftforge.net/maven'
+        }
+        mavenCentral()
+    }
+    dependencies {
+        // https://files.minecraftforge.net/maven/net/minecraftforge/gradle/ForgeGradle
+        classpath "net.minecraftforge.gradle:ForgeGradle:${forgeGradleVersion}"
+    }
+}
+
+apply plugin: "java"
+apply plugin: "idea"
+apply from: "${rootDir}/minecraft.gradle"
+
+group = 'io.github.csabailonka.minecraft'
+archivesBaseName = 'THIS_MOD_ID'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    implementation 'org.projectlombok:lombok:1.18.16'
+    implementation 'org.apache.logging.log4j:log4j-api:2.14.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.14.0'
+}
+
+clean.doLast {
+    delete file('build')
+}
+
+idea.module {
+    excludeDirs += file('.idea')
+    excludeDirs += file('.gradle')
+    excludeDirs += file('build')
+    excludeDirs += file('gradle')
+    excludeDirs += file('logs')
+    excludeDirs += file('run')
+    downloadJavadoc = true
+    downloadSources = true
+}
+
+idea.project {
+    jdkName = JavaVersion.VERSION_1_8
+    vcs = 'Git'
+}
+
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+}
+
+jar {
+    manifest {
+        attributes([
+            "Specification-Title"      : "THIS_MOD_ID",
+            "Specification-Vendor"     : "https://github.com/csaba-ilonka",
+            "Specification-Version"    : "1",
+            "Implementation-Title"     : project.name,
+            "Implementation-Version"   : project.version,
+            "Implementation-Vendor"    : "https://github.com/csaba-ilonka",
+            "Implementation-Timestamp" : new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
