@@ -19,7 +19,7 @@ apply plugin: "idea"
 apply from: "${rootDir}/minecraft.gradle"
 
 group = 'io.github.csabailonka.minecraft'
-archivesBaseName = 'icsaba-mounted-perspective'
+archivesBaseName = 'MountedPerspective'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
