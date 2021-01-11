@@ -6,15 +6,12 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.server.FMLServerStartedEvent;
 
-/**
- * https://mcforge.readthedocs.io/en/1.16.x/
- */
 @Log4j2
-@Mod(ThisMod.ID)
-public class ThisMod {
-    public static final String ID = "THIS_MOD_ID";
+@Mod(MountedPerspectiveMod.ID)
+public class MountedPerspectiveMod {
+    public static final String ID = "icsaba_mounted_perspective";
 
-    public ThisMod() {
+    public MountedPerspectiveMod() {
         MinecraftForge.EVENT_BUS.register(this);
     }
 

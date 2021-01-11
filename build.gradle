@@ -19,7 +19,7 @@ apply plugin: "idea"
 apply from: "${rootDir}/minecraft.gradle"
 
 group = 'io.github.csabailonka.minecraft'
-archivesBaseName = 'THIS_MOD_ID'
+archivesBaseName = 'icsaba-mounted-perspective'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -63,7 +63,7 @@ sourceSets.main.resources {
 jar {
     manifest {
         attributes([
-            "Specification-Title"      : "THIS_MOD_ID",
+            "Specification-Title"      : "icsaba_mounted_perspective",
             "Specification-Vendor"     : "https://github.com/csaba-ilonka",
             "Specification-Version"    : "1",
             "Implementation-Title"     : project.name,
